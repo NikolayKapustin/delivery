@@ -10,6 +10,26 @@ namespace DeliveryApp.Core.Domain.Model.SharedKernel;
 public class Location : ValueObject
 {
     /// <summary>
+    /// Минимальное значение по горизонтали
+    /// </summary>
+    private const int MinX = 1;
+    
+    /// <summary>
+    /// Максимальное значение по горизонтали
+    /// </summary>
+    private const int MaxX = 10;
+    
+    /// <summary>
+    /// Минимальное значение по вертикали
+    /// </summary>
+    private const int MinY = 1;
+    
+    /// <summary>
+    /// Максимальное значение по вертикали
+    /// </summary>
+    private const int MaxY = 10;
+
+    /// <summary>
     /// Случайная координата
     /// </summary>
     public static Location Random
@@ -17,10 +37,10 @@ public class Location : ValueObject
         get
         {
             var random = new Random();
-            return new Location(random.Next(1,10), random.Next(1,10));
+            return new Location(random.Next(MinX, MaxX), random.Next(MinY, MaxY));
         }
     }
-        
+
     /// <summary>
     /// Ctr
     /// </summary>
@@ -58,10 +78,10 @@ public class Location : ValueObject
     /// <returns>Результат</returns>
     public static Result<Location, Error> Create(int x, int y)
     {
-        if (x is < 1 or > 10) return GeneralErrors.ValueIsInvalid(nameof(x));
-        if (y is < 1 or > 10) return GeneralErrors.ValueIsInvalid(nameof(y));
-       
-        return new Location(x,y);
+        if (x is < MinX or > MaxX) return GeneralErrors.ValueIsInvalid(nameof(x));
+        if (y is < MinY or > MaxY) return GeneralErrors.ValueIsInvalid(nameof(y));
+
+        return new Location(x, y);
     }
 
     /// <summary>
