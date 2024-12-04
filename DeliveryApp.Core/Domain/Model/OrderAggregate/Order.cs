@@ -60,7 +60,7 @@ public class Order : Aggregate
     /// <summary>
     /// Идентификатор назначенного курьера
     /// </summary>
-    public Guid CourierId { get; private set; }
+    public Guid? CourierId { get; private set; }
 
     /// <summary>
     /// Назначить заказ на курьера
