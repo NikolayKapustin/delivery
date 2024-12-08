@@ -34,10 +34,9 @@ public class CourierShould
         var courier = Courier.Create("name", Transport.Bicycle, Location.Create(1, 1).Value).Value;
 
         //Act
-        var setBusyResult = courier.SetBusy();
+        courier.SetBusy();
 
         //Assert
-        setBusyResult.IsSuccess.Should().BeTrue();
         courier.Status.Should().Be(CourierStatus.Busy);
     }
 
@@ -48,10 +47,9 @@ public class CourierShould
         var courier = Courier.Create("name", Transport.Bicycle, Location.Create(1, 1).Value).Value;
 
         //Act
-        var setBusyResult = courier.SetFree();
+        courier.SetFree();
 
         //Assert
-        setBusyResult.IsSuccess.Should().BeTrue();
         courier.Status.Should().Be(CourierStatus.Free);
     }
 

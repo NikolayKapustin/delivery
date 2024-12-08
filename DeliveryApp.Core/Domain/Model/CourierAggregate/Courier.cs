@@ -76,20 +76,18 @@ public class Courier : Aggregate
     /// Установить статус занят
     /// </summary>
     /// <returns>Результат</returns>
-    public Result SetBusy()
+    public void SetBusy()
     {
         Status = CourierStatus.Busy;
-        return Result.Success();
     }
 
     /// <summary>
     /// Установить статус свободен
     /// </summary>
     /// <returns>Результат</returns>
-    public Result SetFree()
+    public void SetFree()
     {
         Status = CourierStatus.Free;
-        return Result.Success();
     }
 
     /// <summary>

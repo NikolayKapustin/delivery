@@ -25,11 +25,6 @@ public class DispatchService : IDispatchService
         
         foreach (var courier in couriers)
         {
-            if (Equals(nearestCourier, courier))
-            {
-                continue;
-            }
-
             if (courier.CalculateTimeToPoint(order.Location).Value < nearestCourier.CalculateTimeToPoint(order.Location).Value)
             {
                 nearestCourier = courier;
