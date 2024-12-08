@@ -40,13 +40,13 @@ public class OrderRepository : IOrderRepository
         return await _dbContext.Orders.SingleOrDefaultAsync(oder => oder.Id == id);
     }
 
-    public async Task<IEnumerable<Order>> GetAllNewOrdersAsync()
+    public async Task<ICollection<Order>> GetAllNewOrdersAsync()
     {
         return await _dbContext.Orders.Where(order => order.Status == OrderStatus.Created)
             .ToListAsync();
     }
 
-    public async Task<IEnumerable<Order>> GetAllAssignedOrdersAsync()
+    public async Task<ICollection<Order>> GetAllAssignedOrdersAsync()
     {
         return await _dbContext.Orders.Where(order => order.Status == OrderStatus.Assigned)
             .ToListAsync();

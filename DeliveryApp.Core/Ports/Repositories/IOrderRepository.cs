@@ -31,11 +31,11 @@ public interface IOrderRepository : IRepository<Order>
     /// Получить все заказы в статусе Created
     /// </summary>
     /// <returns>Заказы</returns>
-    Task<IEnumerable<Order>> GetAllNewOrdersAsync();
+    Task<ICollection<Order>> GetAllNewOrdersAsync();
     
     /// <summary>
     /// Получить все заказы в статусе Assigned
     /// </summary>
     /// <returns>Заказы</returns>
-    Task<IEnumerable<Order>> GetAllAssignedOrdersAsync();
+    Task<ICollection<Order>> GetAllAssignedOrdersAsync();
 }
